@@ -1,0 +1,14 @@
+name: 'WG-test-action for testing release'
+description: 'WG-test-action for testing releases of actions, doesnt do anything'
+inputs:
+  apiKey:
+    description: 'An agent API key '
+    required: true
+  
+
+runs:
+  using: "composite"
+  steps:
+    - name: Say Hello
+      run: |
+        echo "Hello"
