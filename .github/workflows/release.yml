@@ -16,6 +16,7 @@ on:
     types:
       - closed
 
+
 permissions:
   contents: write
 jobs:
@@ -40,7 +41,7 @@ jobs:
           version: ${{ steps.latest-release.outputs.release }}
 
       - name: Release patch
-        if: ${{ inputs.RELEASE_TYPE == 'patch' }}
+        if: ${{ github.event_name == 'pull_request' || inputs.RELEASE_TYPE == 'patch' }}
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ steps.semvers.outputs.v_patch }}
