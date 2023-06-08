@@ -36,5 +36,5 @@ jobs:
       - name: Release patch
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ steps.semvers.outputs.${{ inputs.RELEASE_TYPE }}}}
+          tag_name: ${{ steps.semvers.outputs.["v_${{ inputs.RELEASE_TYPE }}"] }}
       
