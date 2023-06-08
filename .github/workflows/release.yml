@@ -1,8 +1,15 @@
-name: release
+name: create-release
 
 
 on:
-  push:
+  workflow_dispatch:
+    inputs:
+      RELEASE_TYPE:
+        type: choice
+        options:
+        - patch
+        - minor
+        - major
 
 permissions:
   contents: write
@@ -29,5 +36,5 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ steps.semvers.outputs.v_patch }}
+          tag_name: ${{ steps.semvers.outputs["v_${{ github.event.inputs.RELEASE_TYPE }}"] }}
       
