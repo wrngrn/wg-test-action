@@ -34,6 +34,7 @@ jobs:
         uses: codacy/git-version@2.7.1
         with:
           release-branch: main
+          prefix: v
 
       - name: Release patch
         uses: softprops/action-gh-release@v1
