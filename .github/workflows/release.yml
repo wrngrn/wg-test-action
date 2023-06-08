@@ -24,15 +24,10 @@ jobs:
         with:
           version: ${{ steps.previoustag.outputs.tag }}
 
-      - name: Create release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Release
+        uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ steps.semvers.outputs.minor }}
-          release_name: ${{ steps.semvers.outputs.minor }}
-          draft: false
-          prerelease: false
       
       - name: Update Tags
         uses: Actions-R-Us/actions-tagger@latest
