@@ -29,7 +29,7 @@ jobs:
         with:
           fetch-depth: 0
       - id: latest-release
-        uses: pozetroninc/github-action-get-latest-release@master
+        uses: pozetroninc/github-action-get-latest-release@d1dafdb6e338bdab109e6afce581a01858680dfb
         with:
           repository: ${{ github.repository }}
           excludes: prerelease, draft
