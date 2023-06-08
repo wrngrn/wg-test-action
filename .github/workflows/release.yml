@@ -3,13 +3,6 @@ name: create-release
 
 on:
   workflow_dispatch:
-    inputs:
-      RELEASE_TYPE:
-        type: choice
-        options:
-        - patch
-        - minor
-        - major
   pull_request:
     branches:
       - 'main'
@@ -23,7 +16,6 @@ jobs:
   tagged-release:
     name: "Tagged Release"
     runs-on: "ubuntu-latest"
-
     steps:
       - uses: actions/checkout@v2.3.3
         with:
@@ -31,13 +23,13 @@ jobs:
       
       - name: Git Version
         id: version
-        uses: codacy/git-version@2.7.1
+        uses: codacy/git-version@80c816f11db8dea5e3a81025f598193015b51832
         with:
           release-branch: main
           prefix: v
 
       - name: Release patch
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844
         with:
           tag_name: ${{ steps.version.outputs.version }}
           token: ${{secrets.PAT}}
