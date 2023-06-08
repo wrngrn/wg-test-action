@@ -4,6 +4,8 @@ name: release
 on:
   push:
 
+permissions:
+  contents: write
 jobs:
   tagged-release:
     name: "Tagged Release"
