@@ -11,4 +11,4 @@ runs:
   steps:
     - name: Say Hello
       run: |
-        echo "Hello"
+        echo "Hello v3.0.3"
