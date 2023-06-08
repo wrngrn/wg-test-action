@@ -35,6 +35,19 @@ jobs:
 
       - name: Release patch
         uses: softprops/action-gh-release@v1
+        if: ${{ inputs.RELEASE_TYPE }} == "patch"
         with:
-          tag_name: ${{ steps.semvers.outputs.["v_${{ inputs.RELEASE_TYPE }}"] }}
+          tag_name: ${{ steps.semvers.outputs.v_patch }}
+
+      - name: Release minor
+        uses: softprops/action-gh-release@v1
+        if: ${{ inputs.RELEASE_TYPE }} == "minor"
+        with:
+          tag_name: ${{ steps.semvers.outputs.v_minor }}
+
+      - name: Release major
+        uses: softprops/action-gh-release@v1
+        if: ${{ inputs.RELEASE_TYPE }} == "major"
+        with:
+          tag_name: ${{ steps.semvers.outputs.v_major }}
       
