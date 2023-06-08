@@ -19,7 +19,7 @@ jobs:
         id: previoustag
         uses: "WyriHaximus/github-action-get-previous-tag@v1"
         with:
-          fallback: 1.0.0
+          fallback: v1.0.0
       - name: 'Get next minor version'
         id: semvers
         uses: "WyriHaximus/github-action-next-semvers@v1"
@@ -29,7 +29,7 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ steps.semvers.outputs.minor }}
+          tag_name: ${{ steps.semvers.outputs.v_patch }}
       
       - name: Update Tags
         uses: Actions-R-Us/actions-tagger@latest
