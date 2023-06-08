@@ -44,16 +44,19 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ steps.semvers.outputs.v_patch }}
+          token: ${{secrets.PAT}}
 
       - name: Release minor
         if: ${{ inputs.RELEASE_TYPE == 'minor' }}
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ steps.semvers.outputs.v_minor }}
+          token: ${{secrets.PAT}}
 
       - name: Release major
         if: ${{ inputs.RELEASE_TYPE  == 'major' }}
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ steps.semvers.outputs.v_major }}
+          token: ${{secrets.PAT}}
       
