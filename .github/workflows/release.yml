@@ -35,20 +35,20 @@ jobs:
           version: ${{ steps.latest-release.outputs.release }}
 
       - name: Release patch
-        uses: softprops/action-gh-release@v1
         if: ${{ inputs.RELEASE_TYPE }} == "patch"
+        uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ steps.semvers.outputs.v_patch }}
 
       - name: Release minor
-        uses: softprops/action-gh-release@v1
         if: ${{ inputs.RELEASE_TYPE }} == "minor"
+        uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ steps.semvers.outputs.v_minor }}
 
       - name: Release major
-        uses: softprops/action-gh-release@v1
         if: ${{ inputs.RELEASE_TYPE }} == "major"
+        uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ steps.semvers.outputs.v_major }}
       
