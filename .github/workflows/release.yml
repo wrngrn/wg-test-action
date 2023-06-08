@@ -3,13 +3,6 @@ name: create-release
 
 on:
   workflow_dispatch:
-    inputs:
-      RELEASE_TYPE:
-        type: choice
-        options:
-        - patch
-        - minor
-        - major
   pull_request:
     branches:
       - 'main'
