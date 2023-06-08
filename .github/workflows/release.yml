@@ -31,7 +31,3 @@ jobs:
         with:
           tag_name: ${{ steps.semvers.outputs.v_patch }}
       
-      - name: Update Tags
-        uses: Actions-R-Us/actions-tagger@latest
-        with:
-          publish_latest_tag: true
